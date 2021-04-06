@@ -48,6 +48,7 @@ $ pip install django
 ### Run the server 
 
 ```bash 
+$ cd expert_system
 $  python manage.py runserver
 ```
 
