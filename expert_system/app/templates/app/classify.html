@@ -3,59 +3,62 @@
     <h1 class = "title is-3 has-text-centered">Enter the details to classify</h1>
 
     <div class="columns is-centered"> 
-    <div class = "column is-half ">
-    <form class="box" action="/app/result/" method="post">
+    <div class = "column is-half">
+    <form class="box" id="classify_form" action="/app/result/" method="post">
+        {% csrf_token %}
         <div class="field">
             <label for="id" class="label">ID Number</label>
             <div class="control">
-                <input id="id" class="input" type="text" placeholder="ID Number">
+                <input name="id" class="input" type="text" placeholder="ID Number">
             </div>
         </div>
 
         <div class="field">
             <label for="radius"class="label">Radius</label>
             <div class="control">
-                <input id="radius" class="input" type="text" placeholder="0.0000">
+                <input name="radius" class="input" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="field">
             <label for="perimeter" class="label">Perimeter</label>
             <div class="control">
-                <input id="perimeter" class="input" type="text" placeholder="0.0000">
+                <input name="perimeter" class="input" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="field">
             <label for="area" class="label">Area</label>
             <div class="control">
-                <input id="area" class="input" type="text" placeholder="0.0000">
+                <input name="area" class="input" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="field">
             <label for="smoothness" class="label">Smoothness</label>
             <div class="control">
-                <input id="smoothness" class="input" type="text" placeholder="0.0000">
+                <input name="smoothness" class="input" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="field">
             <label for="compactness" class="label">Compactness</label>
             <div class="control">
-                <input id="compactness" class="input" type="text" placeholder="0.0000">
+                <input name="compactness" class="input" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="field">
             <label for="concavity" class="label">Concavity</label>
             <div class="control">
-                <input id="concavity" class="input" type="text" placeholder="0.0000">
+                <input name="concavity" class="input" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="control">
-            <button type="submit" class="button is-primary has-text-centered">Classify</button>
+            <button type="submit" class="button is-primary has-text-centered">
+                Classify
+            </button>
         </div>
 
     </form>

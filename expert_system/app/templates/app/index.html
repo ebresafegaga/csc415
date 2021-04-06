@@ -1,4 +1,13 @@
 {% extends 'base/base.html' %}
 {% block content %} 
-    <h1 class="title">This is the index page</h1>
+<div class="columns is-centered is-vcentered is-desktop"> 
+    <div class = "column is-half ">
+    <div class="box">
+        <h1 class="title is-3">Breast Cancer Expert System</h1>
+        <form action="/app/classify">
+            <button type="submit" class="button is-primary">Continue</button>
+        </form>
+    </div>
+    </div>
+    </div>
 {% endblock %}
