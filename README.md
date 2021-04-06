@@ -51,8 +51,8 @@ $ pip install django
 $  python manage.py runserver
 ```
 
-Open your browser and use the application
+### Open your browser and use the application
 
 ```bash
- http://127.0.0.1:8000/app
+ http://localhost:8000/app
 ```
