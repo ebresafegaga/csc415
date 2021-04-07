@@ -21,9 +21,7 @@ def do_classify (features):
     model = pickle.load (open  ("/home/gaga/repos/csc415/random_forest.sav", "rb"))
     row =  (list (features.values ()))[1:]
     print (row)
-    prediction = model.predict ([
-       row 
-    ])
+    prediction = model.predict ([ row ])[0]
     if prediction == 1: 
         return 'malignant'
     elif prediction == 0:
