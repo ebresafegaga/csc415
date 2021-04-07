@@ -39,7 +39,7 @@ $ source venv/bin/activate
 ```
 - idk know how to do this on Windows (you can google it though!)
 
-### Install Django 
+### Install Django and Sklearn-Kit
 For mac, Linux, and Windows 
 ```bash 
 $ pip install django 
