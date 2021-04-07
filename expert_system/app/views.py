@@ -12,7 +12,7 @@ def classify (request):
 # <<< machine learning classification algorithm here >>> 
 # This function should take a dictionary of features and 
 # return a diagnostic of either 'malignant' or 'benign'
-# for now, it just some fake logic.
+# for now, its just some fake logic.
 def do_classify (features): 
     features = {k: float (v) for k, v in features.items () }
     if (features['area'] + features['radius']) > 100: 

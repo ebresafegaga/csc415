@@ -1,5 +1,94 @@
 {% extends 'base/base.html' %}
 {% block content %} 
+    <script>
+        const radius = document.getElementsByClassName ("radiusField") 
+        const perimeter = document.getElementsByClassName ("perimeterField") 
+        const area = document.getElementsByClassName ("areaField") 
+        const smoothness = document.getElementsByClassName ("smoothnessField") 
+        const compactness = document.getElementsByClassName ("compactnessField") 
+        const concavity = document.getElementsByClassName ("concavityField") 
+        const selectors = [ 
+            [".radiusField", radius], 
+            [".perimeterField", perimeter]
+        ] 
+        const forall = array => array.reduceRight ((acc, curr) => acc && curr)
+        const isNullOrWhiteSpace = str => !str || str.length === 0 || /^\s*$/.test(str) 
+       
+        window.onload = () => {
+            const valid = forall (selectors.map (s => {
+                        const [tag, element] = s 
+                        return !isNullOrWhiteSpace (element.value)
+                }))
+            // alert(valid)
+            updateButton (valid) 
+        }
+
+        document.addEventListener ("change", event => {
+            const matches = str => event.target.matches (str)
+            const find = selectors.find (s => {
+                const [tag, element] = s 
+                return matches (tag)
+            })
+
+            if (find === undefined) {
+                // not my event 
+            } else {
+                const [tag, element] = find
+                validate (element)
+                const validList = selectors.map (s => {
+                        const [tag, element] = s 
+                        return validate (element)
+                    })
+                const allValid = forall (validList)
+                // console.log (allValid)
+                updateButton (allValid)
+            }
+        })
+
+        
+        function updateButton (all) {
+            const btns = document.getElementsByClassName ("submitBtn")
+            
+            // alert(btns)
+            if (all) {
+                // alert ("enabled")
+                Array.from (btns).forEach( e => {
+                    e.disabled = false 
+                    
+                })
+            } else {
+                // alert ("disabled")
+                // alert(btns.length === 0)
+                Array.from (btns).forEach( e => {
+                    e.disabled = true
+                })
+            }
+        }
+
+        function validate (elem) {
+            // elems is atually a list or some HTML collection
+            const floatRegex = /^-?\d*(\.\d+)?$/
+            const elems = Array.from (elem)     
+            
+            const conditions = 
+                forall(elems.map (e => floatRegex.test (e.value)))
+                && forall(elems.map (e => !isNullOrWhiteSpace (e.value)))
+
+            if (conditions) {
+                Array.from (elem).forEach( e => {
+                    e.classList.remove ("is-danger")
+                    e.classList.add ("is-success")
+                })
+                return true 
+            } else {
+                Array.from (elem).forEach ( e => {
+                    e.classList.remove ("is-success")
+                    e.classList.add ("is-danger")
+                })
+                return false 
+            }
+        }
+    </script>
     <h1 class = "title is-3 has-text-centered">Enter the details to classify</h1>
 
     <div class="columns is-centered"> 
@@ -16,48 +105,48 @@
         <div class="field">
             <label for="radius"class="label">Radius</label>
             <div class="control">
-                <input name="radius" class="input" type="text" placeholder="0.0000">
+                <input id="radius" name="radius" class="input needs-validation radiusField" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="field">
             <label for="perimeter" class="label">Perimeter</label>
             <div class="control">
-                <input name="perimeter" class="input" type="text" placeholder="0.0000">
+                <input name="perimeter" class="input needs-validation perimeterField" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="field">
             <label for="area" class="label">Area</label>
             <div class="control">
-                <input name="area" class="input" type="text" placeholder="0.0000">
+                <input name="area" class="input  needs-validation areaField" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="field">
             <label for="smoothness" class="label">Smoothness</label>
             <div class="control">
-                <input name="smoothness" class="input" type="text" placeholder="0.0000">
+                <input name="smoothness" class="input  needs-validation smoothnessField" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="field">
             <label for="compactness" class="label">Compactness</label>
             <div class="control">
-                <input name="compactness" class="input" type="text" placeholder="0.0000">
+                <input name="compactness" class="input  needs-validation compactnessField" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="field">
             <label for="concavity" class="label">Concavity</label>
             <div class="control">
-                <input name="concavity" class="input" type="text" placeholder="0.0000">
+                <input name="concavity" class="input  needs-validation concavityField" type="text" placeholder="0.0000">
             </div>
         </div>
 
         <div class="control">
             <div class="has-text-centered"> 
-            <button type="submit" class="button is-primary has-text-centered">
+            <button type="submit" class="button submitBtn is-primary has-text-centered">
                 Classify
             </button>
             </div>
@@ -66,7 +155,6 @@
     </form>
     </div>
     </div>
-
     
 {% endblock %}
 
