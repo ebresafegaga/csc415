@@ -43,6 +43,7 @@ $ source venv/bin/activate
 For mac, Linux, and Windows 
 ```bash 
 $ pip install django 
+$ pip install sklearn
 ```
 
 ### Run the server 
