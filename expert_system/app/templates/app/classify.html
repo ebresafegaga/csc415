@@ -9,7 +9,11 @@
         const concavity = document.getElementsByClassName ("concavityField") 
         const selectors = [ 
             [".radiusField", radius], 
-            [".perimeterField", perimeter]
+            [".perimeterField", perimeter],
+            [".areaField", area],
+            [".smoothnessField", smoothness],
+            [".compactnessField", compactness],
+            [".concavityField", concavity]
         ] 
         const forall = array => array.reduceRight ((acc, curr) => acc && curr)
         const isNullOrWhiteSpace = str => !str || str.length === 0 || /^\s*$/.test(str) 
@@ -98,7 +102,7 @@
         <div class="field">
             <label for="id" class="label">ID Number</label>
             <div class="control">
-                <input name="id" class="input" type="text" placeholder="ID Number">
+                <input name="id" class="input" type="text" placeholder="0">
             </div>
         </div>
 
