@@ -7,7 +7,7 @@ def index (request):
     return render (request, 'app/index.html')
  
 def classify (request): 
-    return render (request,  'app/classify.html')
+    return render (request, 'app/classify.html')
 
 # <<< machine learning classification algorithm here >>> 
 # This function should take a dictionary of features and 
