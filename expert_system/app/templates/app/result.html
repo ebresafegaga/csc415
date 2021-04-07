@@ -10,33 +10,41 @@
 <br/>
     <h1 class = "title is-3 has-text-centered">Result</h1>
     <div class="columns is-centered is-vcentered is-desktop"> 
-    <div class = "column is-three-quarters ">
+    <div class = "column is-three-quarters" style="overflow-x:auto;overflow-y:hidden;white-space:nowrap;">
     <div class="box">
         <table class="table is-hoverable is-fullwidth">
             <thead>
                 <th>ID</th>
+                <th>Diagnostic</th>
                 <th>Radius</th>
+                <th>Texture</th>
                 <th>Perimeter</th>
                 <th>Area</th>
                 <th>Smoothness</th>
                 <th>Compactness</th>
                 <th>Concavity</th>
-                <th>Diagnostic</th>
+                <th>Concave Points</th>
+                <th>Symmetry</th>
+                <th>Fractal Dimension</th>
             </thead>
             <tbody>
                 <tr>
                     <td>{{ id }}</td>
-                    <td> {{ radius }} </td>
-                    <td> {{ perimeter }}</td>
-                    <td> {{ area }} </td>
-                    <td> {{ smoothness }} </td>
-                    <td> {{ compactness }} </td>
-                    <td> {{ concavity }} </td>
                     {% if diagnostic == 'malignant' %}
                     <td class="has-text-danger">Malignant</td>
                     {% else %}
                     <td class="has-text-success">Benign</td>
                     {% endif %}
+                    <td> {{ radius }} </td>
+                    <td> {{ texture }} </td>
+                    <td> {{ perimeter }}</td>
+                    <td> {{ area }} </td>
+                    <td> {{ smoothness }} </td>
+                    <td> {{ compactness }} </td>
+                    <td> {{ concavity }} </td>
+                    <td> {{ concave_points }} </td>
+                    <td> {{ symmetry }}</td>
+                    <td> {{ fractal_dimension }} </td>
                 </tr>
             </tbody>
         </table>

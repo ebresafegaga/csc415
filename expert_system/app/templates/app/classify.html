@@ -7,13 +7,21 @@
         const smoothness = document.getElementsByClassName ("smoothnessField") 
         const compactness = document.getElementsByClassName ("compactnessField") 
         const concavity = document.getElementsByClassName ("concavityField") 
+        const concave_points = document.getElementsByClassName ("concavePointsField") 
+        const fractal_dimension = document.getElementsByClassName ("fractalDimensionField") 
+        const symmetry = document.getElementsByClassName ("symmetryField") 
+        const texture = document.getElementsByClassName ("textureField") 
         const selectors = [ 
             [".radiusField", radius], 
             [".perimeterField", perimeter],
             [".areaField", area],
             [".smoothnessField", smoothness],
             [".compactnessField", compactness],
-            [".concavityField", concavity]
+            [".concavityField", concavity],
+            [".concavePointsField", concave_points],
+            [".fractalDimensionField", fractal_dimension],
+            [".textureField", texture],
+            [".symmetryField", symmetry],
         ] 
         const forall = array => array.reduceRight ((acc, curr) => acc && curr)
         const isNullOrWhiteSpace = str => !str || str.length === 0 || /^\s*$/.test(str) 
@@ -114,6 +122,13 @@
         </div>
 
         <div class="field">
+            <label for="texture"class="label">Texture</label>
+            <div class="control">
+                <input id="texture" name="texture" class="input needs-validation textureField" type="text" placeholder="0.0000">
+            </div>
+        </div>
+
+        <div class="field">
             <label for="perimeter" class="label">Perimeter</label>
             <div class="control">
                 <input name="perimeter" class="input needs-validation perimeterField" type="text" placeholder="0.0000">
@@ -145,6 +160,27 @@
             <label for="concavity" class="label">Concavity</label>
             <div class="control">
                 <input name="concavity" class="input  needs-validation concavityField" type="text" placeholder="0.0000">
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="concave_points" class="label">Concave Points</label>
+            <div class="control">
+                <input name="concave_points" class="input  needs-validation concavePointsField" type="text" placeholder="0.0000">
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="symmetry" class="label">Symmetry</label>
+            <div class="control">
+                <input name="symmetry" class="input  needs-validation symmetryField" type="text" placeholder="0.0000">
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="fractal_dimension" class="label">Fractal Dimension</label>
+            <div class="control">
+                <input name="fractal_dimension" class="input  needs-validation fractalDimensionField" type="text" placeholder="0.0000">
             </div>
         </div>
 

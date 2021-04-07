@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+import pickle
+import sklearn
+
 # Create your views here.
 
 def index (request): 
@@ -15,10 +18,18 @@ def classify (request):
 # for now, its just some fake logic.
 def do_classify (features): 
     features = {k: float (v) for k, v in features.items () }
-    if (features['area'] + features['radius']) > 100: 
-        return 'benign'
-    else:
+    model = pickle.load (open  ("/home/gaga/repos/csc415/random_forest.sav", "rb"))
+    row =  (list (features.values ()))[1:]
+    print (row)
+    prediction = model.predict ([
+       row 
+    ])
+    if prediction == 1: 
         return 'malignant'
+    elif prediction == 0:
+        return 'benign'
+    else: 
+        return 'error'
 
 def result (request): 
     context = {} 
@@ -31,6 +42,9 @@ def result (request):
 
     radius = request.POST.get ('radius', 0.0000) 
     context['radius'] = radius
+
+    texture = request.POST.get ('texture', 0.0000) 
+    context['texture'] = texture
 
     perimeter = request.POST.get ('perimeter', 0.0000) 
     context['perimeter'] = perimeter
@@ -46,6 +60,15 @@ def result (request):
 
     concavity = request.POST.get ('concavity', 0.0000) 
     context['concavity'] = concavity
+
+    concave_points = request.POST.get ('concave_points', 0.0000) 
+    context['concave_points'] = concave_points
+
+    symmetry = request.POST.get ('symmetry', 0.0000) 
+    context['symmetry'] = symmetry
+
+    fractal_dimension = request.POST.get ('fractal_dimension', 0.0000) 
+    context['fractal_dimension'] = fractal_dimension
 
     dignostic = do_classify (context) # <<<< machine learning function here
     context['diagnostic'] = dignostic 
