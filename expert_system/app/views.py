@@ -1,10 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-import pickle
-import sklearn
-
-# Create your views here.
+import pickle # to load the serialized python object  
+import sklearn # for ML prediction 
 
 def index (request): 
     return render (request, 'app/index.html')
@@ -12,16 +10,26 @@ def index (request):
 def classify (request): 
     return render (request, 'app/classify.html')
 
-# <<< machine learning classification algorithm here >>> 
-# This function should take a dictionary of features and 
-# return a diagnostic of either 'malignant' or 'benign'
-# for now, its just some fake logic.
+
 def do_classify (features): 
-    features = {k: float (v) for k, v in features.items () }
+
+    # convert inputs(features) from string to float values.
+    features = { k: float (v) for k, v in features.items () }
+
+    # load the saved model from disk, and convert it to a python object.
+    # if we want to use another algorithm, just change the file 
+    # e.g for SVM, load "svm.sav" instead of "random_forest.sav"
     model = pickle.load (open ("/home/gaga/repos/csc415/random_forest.sav", "rb"))
+
+    # remove the "ID Number" row from the list of features (input)
     row =  (list (features.values ()))[1:]
-    print (row) # for debugging and ensuring the data is in the right order
+
+    # for debugging and ensuring the data is in the right order
+    print (row)
+
+    # predict that data 
     prediction = model.predict ([ row ])[0]
+
     if prediction == 1: 
         return 'malignant'
     elif prediction == 0:
@@ -32,9 +40,6 @@ def do_classify (features):
 def result (request): 
     context = {} 
 
-    # Honest worry: what would be the type of the values gotten from the POST request
-    # if it's a string, we'd have to convert it to a number? 
-    # what about dynamic typing? 
     id = request.POST.get ('id', 0) 
     context['id'] = id
 
@@ -68,7 +73,7 @@ def result (request):
     fractal_dimension = request.POST.get ('fractal_dimension', 0.0000) 
     context['fractal_dimension'] = fractal_dimension
 
-    dignostic = do_classify (context) # <<<< machine learning function here
+    dignostic = do_classify (context)
     context['diagnostic'] = dignostic 
 
     return render (request, 'app/result.html', context)
