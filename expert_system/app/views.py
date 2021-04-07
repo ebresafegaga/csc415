@@ -18,9 +18,9 @@ def classify (request):
 # for now, its just some fake logic.
 def do_classify (features): 
     features = {k: float (v) for k, v in features.items () }
-    model = pickle.load (open  ("/home/gaga/repos/csc415/random_forest.sav", "rb"))
+    model = pickle.load (open ("/home/gaga/repos/csc415/random_forest.sav", "rb"))
     row =  (list (features.values ()))[1:]
-    print (row)
+    print (row) # for debugging and ensuring the data is in the right order
     prediction = model.predict ([ row ])[0]
     if prediction == 1: 
         return 'malignant'
