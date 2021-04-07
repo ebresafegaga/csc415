@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .forms import ClassifyForm
-
 # Create your views here.
 
 def index (request): 
@@ -12,6 +10,9 @@ def classify (request):
     return render (request,  'app/classify.html')
 
 # <<< machine learning classification algorithm here >>> 
+# This function should take a list of features and 
+# return a diagnostic of either 'malignant' or 'benign'
+# for now, it just defualts to benign.
 def do_classify (): 
     return 'benign'
 

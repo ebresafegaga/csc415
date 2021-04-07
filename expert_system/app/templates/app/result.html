@@ -1,16 +1,26 @@
 {% extends 'base/base.html' %}
 {% block content %} 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<br/>
     <h1 class = "title is-3 has-text-centered">Result</h1>
     <div class="columns is-centered is-vcentered is-desktop"> 
-    <div class = "column is-half ">
+    <div class = "column is-three-quarters ">
     <div class="box">
         <table class="table is-hoverable is-fullwidth">
             <thead>
-                <th>ID Number</th>
+                <th>ID</th>
                 <th>Radius</th>
                 <th>Perimeter</th>
                 <th>Area</th>
                 <th>Smoothness</th>
+                <th>Compactness</th>
+                <th>Concavity</th>
                 <th>Diagnostic</th>
             </thead>
             <tbody>
@@ -20,6 +30,8 @@
                     <td> {{ perimeter }}</td>
                     <td> {{ area }} </td>
                     <td> {{ smoothness }} </td>
+                    <td> {{ compactness }} </td>
+                    <th> {{ concavity }} </th>
                     {% if diagnostic == 'malignant' %}
                     <td class="has-text-danger">Malignant</td>
                     {% else %}
