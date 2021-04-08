@@ -47,6 +47,9 @@ $ pip install sklearn
 ```
 
 ### Run all the code in the 'AI Project' Jupyter Notebook 
+```bash 
+$ jupyter notebook
+```
 
 ### Run the move.sh bash script 
 ```bash 
