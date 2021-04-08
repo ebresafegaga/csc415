@@ -30,7 +30,7 @@ $ git clone https://github.com/ebresafegaga/csc415
 $ cd csc415/
 ```
 
-### Create a Virtual Environment 
+### Create a Virtual Environment (Not necessary, but recommended)
 
 - if you're on a mac or Linux machine, do
 ```bash 
