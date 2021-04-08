@@ -60,7 +60,7 @@ $ chmod +x move.sh
 $ ./move.sh
 ```
 
-- If you're on Wnidows, copy it to that folder yourself 
+- If you're on Windows, copy it to that folder yourself 
 
 ### Run the server 
 
