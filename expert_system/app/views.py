@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 import pickle # to load the serialized python object  
 import sklearn # for ML prediction 
+import os
 
 def index (request): 
     return render (request, 'app/index.html')
@@ -10,16 +11,25 @@ def index (request):
 def classify (request): 
     return render (request, 'app/classify.html')
 
+def get_path (): 
+    return os.path.dirname (os.path.realpath (__file__))
 
 def do_classify (features): 
 
+
+    classifier = "random_forest.sav"
+    classifier = os.path.join (get_path (), classifier)
+
+    # get this folder path
+    # print ("Path: ", get_path ())
     # convert inputs(features) from string to float values.
     features = { k: float (v) for k, v in features.items () }
 
     # load the saved model from disk, and convert it to a python object.
     # if we want to use another algorithm, just change the file 
     # e.g for SVM, load "svm.sav" instead of "random_forest.sav"
-    model = pickle.load (open ("/home/gaga/repos/csc415/random_forest.sav", "rb"))
+    # "/home/gaga/repos/csc415/random_forest.sav"
+    model = pickle.load (open (classifier, "rb"))
 
     # remove the "ID Number" row from the list of features (input)
     row =  (list (features.values ()))[1:]
