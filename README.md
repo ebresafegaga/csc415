@@ -25,9 +25,9 @@ $ sudo apt install python3-venv python3-pip
 $ git clone https://github.com/ebresafegaga/csc415
 ```
 
-### Move into the csc415/expert_system directory
+### Move into the csc415/ directory
 ```bash 
-$ cd csc415/expert_system
+$ cd csc415/
 ```
 
 ### Create a Virtual Environment 
@@ -46,11 +46,19 @@ $ pip install django
 $ pip install sklearn
 ```
 
+### Run all the code in the 'AI Project' Jupyter Notebook 
+
+### Run the move.sh bash script 
+```bash 
+$ chmod +x move.sh
+$ ./move.sh
+```
+
 ### Run the server 
 
 ```bash 
 $ cd expert_system
-$  python manage.py runserver
+$ python manage.py runserver
 ```
 
 ### Open your browser and use the application
