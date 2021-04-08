@@ -14,21 +14,17 @@ def classify (request):
 def get_path (): 
     return os.path.dirname (os.path.realpath (__file__))
 
-def do_classify (features): 
-
-
+def do_classify (features):
     classifier = "random_forest.sav"
     classifier = os.path.join (get_path (), classifier)
 
-    # get this folder path
-    # print ("Path: ", get_path ())
     # convert inputs(features) from string to float values.
     features = { k: float (v) for k, v in features.items () }
 
     # load the saved model from disk, and convert it to a python object.
     # if we want to use another algorithm, just change the file 
     # e.g for SVM, load "svm.sav" instead of "random_forest.sav"
-    # "/home/gaga/repos/csc415/random_forest.sav"
+    # "~/csc415/random_forest.sav"
     model = pickle.load (open (classifier, "rb"))
 
     # remove the "ID Number" row from the list of features (input)

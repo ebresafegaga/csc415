@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% block content %} 
     <script>
+        const id = document.getElementsByClassName ("idField") 
         const radius = document.getElementsByClassName ("radiusField") 
         const perimeter = document.getElementsByClassName ("perimeterField") 
         const area = document.getElementsByClassName ("areaField") 
@@ -12,6 +13,7 @@
         const symmetry = document.getElementsByClassName ("symmetryField") 
         const texture = document.getElementsByClassName ("textureField") 
         const selectors = [ 
+            [".idField", id],
             [".radiusField", radius], 
             [".perimeterField", perimeter],
             [".areaField", area],
@@ -110,7 +112,7 @@
         <div class="field">
             <label for="id" class="label">ID Number</label>
             <div class="control">
-                <input name="id" class="input" type="text" placeholder="0">
+                <input name="id" class="input needs-validation idField" type="text" placeholder="0">
             </div>
         </div>
 
