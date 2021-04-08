@@ -27,8 +27,9 @@ def do_classify (features):
     # for debugging and ensuring the data is in the right order
     print (row)
 
-    # predict that data 
+    # predict using that model 
     prediction = model.predict ([ row ])[0]
+
 
     if prediction == 1: 
         return 'malignant'
