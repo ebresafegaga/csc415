@@ -51,38 +51,23 @@ def do_classify (features):
 def result (request): 
     context = {} 
 
-    id = request.POST.get ('id', 0) 
-    context['id'] = id
-
-    radius = request.POST.get ('radius', 0.0000) 
-    context['radius'] = radius
-
-    texture = request.POST.get ('texture', 0.0000) 
-    context['texture'] = texture
-
-    perimeter = request.POST.get ('perimeter', 0.0000) 
-    context['perimeter'] = perimeter
-
-    area = request.POST.get ('area', 0.0000) 
-    context['area'] = area
-
-    smoothness = request.POST.get ('smoothness', 0.0000) 
-    context['smoothness'] = smoothness
-
-    compactness = request.POST.get ('compactness', 0.0000) 
-    context['compactness'] = compactness
-
-    concavity = request.POST.get ('concavity', 0.0000) 
-    context['concavity'] = concavity
-
-    concave_points = request.POST.get ('concave_points', 0.0000) 
-    context['concave_points'] = concave_points
-
-    symmetry = request.POST.get ('symmetry', 0.0000) 
-    context['symmetry'] = symmetry
-
-    fractal_dimension = request.POST.get ('fractal_dimension', 0.0000) 
-    context['fractal_dimension'] = fractal_dimension
+    def add (name): 
+        value = request.POST.get (name, 0)
+        context[name] = value 
+     
+    # The order of this sequential 'add' calls matter
+    # Please don't reorder  
+    add ('id')
+    add ('radius')
+    add ('texture')
+    add ('perimeter')
+    add ('area')
+    add ('smoothness')
+    add ('compactness')
+    add ('concavity')
+    add ('concave_points')
+    add ('symmetry')
+    add ('fractal_dimension')
 
     dignostic = do_classify (context)
     context['diagnostic'] = dignostic 
