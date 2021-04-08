@@ -39,7 +39,7 @@ def do_classify (features):
 
     # predict using that model 
     prediction = model.predict ([ row ])[0]
-
+    print ("Prediction", prediction)
 
     if prediction == 1: 
         return 'malignant'
