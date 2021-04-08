@@ -46,10 +46,12 @@ $ pip install django
 $ pip install sklearn
 ```
 
-### Run all the code in the 'AI Project' Jupyter Notebook 
+### Train the Model and serialize to disk 
+- Open Jupyter Notebooks in the currect directory
 ```bash 
 $ jupyter notebook
 ```
+- Run all the code in the notebook
 
 ### Copy the trianed ML model to the expert_system/app directory
 - If you're on a mac or Linux, just run this on your terminal
