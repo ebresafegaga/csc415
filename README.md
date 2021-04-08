@@ -51,11 +51,14 @@ $ pip install sklearn
 $ jupyter notebook
 ```
 
-### Run the move.sh bash script 
+### Copy the trianed ML model to the expert_system/app directory
+- If you're on a mac or Linux, just run this on your terminal
 ```bash 
 $ chmod +x move.sh
 $ ./move.sh
 ```
+
+- If you're on Wnidows, copy it to that folder yourself 
 
 ### Run the server 
 
