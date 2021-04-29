@@ -39,7 +39,7 @@ $ source venv/bin/activate
 ```
 - idk know how to do this on Windows (you can google it though!)
 
-### Install Django and Sklearn-Kit
+### Install django and scikit-learn
 For mac, Linux, and Windows 
 ```bash 
 $ pip install django 
@@ -53,7 +53,7 @@ $ jupyter notebook
 ```
 - Run all the code in the notebook
 
-### Copy the trianed ML model to the expert_system/app directory
+### Copy the trianed ML model to the `expert_system/app` directory
 - If you're on a mac or Linux, just run this on your terminal
 ```bash 
 $ chmod +x move.sh
