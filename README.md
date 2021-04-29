@@ -25,7 +25,7 @@ $ sudo apt install python3-venv python3-pip
 $ git clone https://github.com/ebresafegaga/csc415
 ```
 
-### Move into the csc415/ directory
+### Move into the `csc415/` directory
 ```bash 
 $ cd csc415/
 ```
