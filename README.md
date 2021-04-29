@@ -1,7 +1,6 @@
 # Breast cancer expert system using the Breast Cancer Wisconsin (Diagnostic) Data Set
 
-
-## How to use 
+## How to use
 
 ### Setup Python 3
 
@@ -30,7 +29,7 @@ $ git clone https://github.com/ebresafegaga/csc415
 $ cd csc415/
 ```
 
-### Create a Virtual Environment (Not required, but recommended)
+### Create a Virtual Environment (not required, but recommended)
 
 - if you're on a mac or Linux machine, do
 ```bash 
